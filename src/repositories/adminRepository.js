@@ -27,5 +27,9 @@ module.exports = {
     async getAllCoordenadores(){
         return db('users').select('*').where({ enum: "coordenador"})
     },
+
+    async getUserByEmail(email){
+        return db('users').select('*').where({email}).first();
+    }
     
 }
