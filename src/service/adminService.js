@@ -1,6 +1,17 @@
+require('dotenv').config();
 const bcrypt = require('bcrypt');
 const adminRepository = require('../repositories/');
 const saltRounds = 10;
+
+
+
+const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth:{
+        user: 'gabrieldeid.android@gmail.com',
+        pass: process.env.SENHA_EMAIL,
+    }
+})
 
 module.exports = {
     async getAllProf (){
@@ -8,11 +19,22 @@ module.exports = {
     },
 
     async createUser (nome, email, senha, matricula, ra, curso, role){
-        result = await adminRepository.getUserByEmail(email)
-        
-        if (result){
+
+        consultaEmail = await adminRepository.getUserByEmail(email)
+        consultaRA = await adminRepository.getUserByRA(ra)
+        consultaMatricula = await adminRepository.getUserByMatricula(matricula)
+
+        if (consultaEmail){
             throw new Error('Email já cadastrado');
         } 
+
+        if (consultaRA){
+            throw new Error('RA já cadastrado');
+        }
+
+        if (consultaMatricula){
+            throw new Error('Matricula já cadastrada');
+        }
 
         const hashedPass = await bcrypt.hash(senha, saltRounds);
 
