@@ -1,5 +1,7 @@
 require('dotenv').config();
+const nodemailer = require("nodemailer");
 const bcrypt = require('bcrypt');
+const crypto = require('crypto');
 const confirmaUserRepository = require('../repositories/confirmaUserRepository');
 const userRepository = require ('../repositories/userRepository')
 const ticketRepository = require ('../repositories/ticketRepository')
@@ -8,10 +10,13 @@ const saltRounds = 10;
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth:{
-        user: 'gabrieldeid.android@gmail.com',
+        user: process.env.EMAIL_LOGIN,
         pass: process.env.SENHA_EMAIL,
     }
 })
+
+console.log(process.env.SENHA_EMAIL)
+console.log(process.env.EMAIL_LOGIN)
 
 module.exports = {
     async createUser(nome, email, senha, matricula, ra, curso, role){
@@ -47,7 +52,7 @@ module.exports = {
         await ticketRepository.createTicket(id, ticket)
 
         await transporter.sendMail({
-                from: ' ',
+                from: 'gabrieldeid.android@gmail.com',
                 to: email,
                 subject: 'Criação de Conta',
                 html: `

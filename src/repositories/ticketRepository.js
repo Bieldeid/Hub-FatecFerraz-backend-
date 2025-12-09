@@ -1,8 +1,11 @@
 const db = require('../database/db');
 
 module.exports = {
-    async createTicket(data){
-        return db ('tickets').insert(data);
+    async createTicket(id, ticket){
+        return db ('tickets').insert({
+            idUser: id,
+            ticket: ticket
+        });
     },
 
     async deleteTicket(ticket){

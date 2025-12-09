@@ -7,7 +7,7 @@ exports.up = function(knex) {
     table.integer('idUser').unsigned();
     table.string('ticket')
 
-    table.foreign('idUser').references('id').inTable('users')
+    table.foreign('idUser').references('id').inTable('confirma_user')
   })
 };
 

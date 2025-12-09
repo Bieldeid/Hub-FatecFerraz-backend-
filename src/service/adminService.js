@@ -1,7 +1,8 @@
 require('dotenv').config();
 const bcrypt = require('bcrypt');
-const adminRepository = require('../repositories/');
+const adminRepository = require('../repositories/adminRepository');
 const saltRounds = 10;
+const nodemailer = require("nodemailer");
 
 
 

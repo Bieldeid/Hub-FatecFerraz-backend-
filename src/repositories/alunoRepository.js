@@ -12,7 +12,23 @@ module.exports = {
       return db('user').insert(aluno)
     },
 
+    async createConfirmaUser(data){
+      return db('user').insert(data)
+    },
+
     async verifyTicket (ticketUser){
         return db("ticket").where({ticketUser}).first();
+    },
+
+    async getAlunoByRa(ra){
+      return db('user').where({ra}).first();
+    },
+
+    async getAlunoByEmail(email){
+      return db('user').where({email}).first();
+    },
+
+    async updateTrabalho(data, id){
+      return db('trabalho').where({id}).update({data})
     }
 }

@@ -7,5 +7,13 @@ module.exports = {
 
     async updateRubrica (data){
         return db('rubricas').where({id}).update({data})
+    },
+
+    async getAllRubrica(){
+        return db('rubricas').select('*');
+    },
+
+    async getEspecifyRubrica(id){
+        return db('rubricas').select('*').where({id}).first
     }
 }
