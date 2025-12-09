@@ -57,12 +57,12 @@ module.exports = {
                 subject: 'Criação de Conta',
                 html: `
                     <div style="background-color: black; padding: 8px 20px; text-align: center;">
-                        <h2 style="font-size: 24px; color: #fff; font-family: 'Baloo', sans-serif; font-weight: 700;">Click</h2>
+                        <h2 style="font-size: 24px; color: #fff; font-family: 'Baloo', sans-serif; font-weight: 700;">Hub Fatec Ferraz</h2>
                     </div>
                     <div style="padding: 20px; background-color: white;">
                         <p style="font-size: 16px; color: black;">Olá!</p>
                         <p style="font-size: 16px; color: black;">Esse é seu <strong style="color: black;">Código</strong> de acesso: ${ticket}!</p>
-                        <p style="font-size: 16px; color: black;">O <strong style="color: black;">Click</strong> agradece o seu cadastro :)</p>
+                        <p style="font-size: 16px; color: black;">A <strong style="color: black;">Fatec Ferraz de Vasconcelos</strong> agradece o seu cadastro :)</p>
                     </div>
                 `,
             });
