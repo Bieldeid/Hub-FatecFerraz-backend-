@@ -10,5 +10,9 @@ module.exports = {
 
     async deleteTicket(ticket){
         return db ('tickets').where({ticket}).del();
-    }
+    },
+
+    async verifyTicketUser(ticket){
+        return db('tickets').where({ticket}).first();
+    },
 }

@@ -5,7 +5,11 @@ module.exports = {
         return db('confirma_user').insert(userData)
     },
 
-    async verifyTicketUser(ticket){
-        return db('tickets').where({ticket}).first();
+    async getUserByTicket(idUserTicket){
+        return db('confirma_user').where({id: idUserTicket}).first()
+    },
+
+    async deleteconfimUser(idUserTicket){
+        return db('confirma_user').where({id: idUserTicket}).del()
     }
 }
