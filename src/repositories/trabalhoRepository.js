@@ -1,5 +1,4 @@
 const db = require('../database/db');
-const { getEspecifyRubrica } = require('./rubricaRepository');
 
 module.exports = {
     async createTrabalho(data){

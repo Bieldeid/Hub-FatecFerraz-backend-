@@ -2,17 +2,17 @@ const db = require('../database/db');
 
 module.exports = {
     async createTicket(id, ticket){
-        return db ('tickets').insert({
+        return db ('email_tickets').insert({
             idUser: id,
             ticket: ticket
         });
     },
 
     async deleteTicket(ticket){
-        return db ('tickets').where({ticket}).del();
+        return db ('email_tickets').where({ticket}).del();
     },
 
     async verifyTicketUser(ticket){
-        return db('tickets').where({ticket}).first();
+        return db('email_tickets').where({ticket}).first();
     },
 }

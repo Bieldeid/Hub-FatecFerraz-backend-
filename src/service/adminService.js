@@ -1,6 +1,7 @@
 require('dotenv').config();
 const bcrypt = require('bcrypt');
 const adminRepository = require('../repositories/adminRepository');
+const cursoRepository = require ('../repositories/cursoRepository')
 const saltRounds = 10;
 const nodemailer = require("nodemailer");
 
@@ -52,5 +53,7 @@ module.exports = {
         return await adminRepository.createUser(userData);
     },
 
-
+    async createCurso(sigla,nome){
+        await cursoRepository.createCurso(sigla,nome)
+    }
 }

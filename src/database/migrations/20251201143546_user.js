@@ -12,7 +12,8 @@ exports.up = function(knex) {
     table.string('senha').notNullable();
     table.string('curso').notNullable();
     table.enum('role', ["admin", "professor", "coordenador", "aluno"]).defaultTo('aluno');
-
+    table.boolean('ativo').notNullable();
+    table.boolean('email_verificado').defaultTo(false)
     table.timestamp('created_at').defaultTo(knex.fn.now());
   })
 };

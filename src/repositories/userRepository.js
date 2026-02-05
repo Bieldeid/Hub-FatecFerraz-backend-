@@ -31,6 +31,19 @@ module.exports = {
 
     async getUserByMatricula(matricula){
         return db('users').select('*').where({matricula}).first();
+    },
+
+    async changeRoleAluno(id, status) {
+    return db('users')
+        .where({ id })  
+        .update({ status });
+    },
+
+    async activateUser(id){
+    return db('users')
+        .where({ id })
+        .update({ ativo: true });
     }
+
     
 }
