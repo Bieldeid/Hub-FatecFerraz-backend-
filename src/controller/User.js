@@ -1,4 +1,3 @@
-const confirmaUserService = require('../service/confirmaUserService')
 const userService = require('../service/userService')
 
 module.exports = {
@@ -6,7 +5,7 @@ module.exports = {
         const {nome, email, senha, matricula, ra, role} = req.body;
 
         try{
-            await confirmaUserService.createUser(nome, email, senha, matricula, ra, role);
+            await userService.createUser(nome, email, senha, matricula, ra, role);
             res.status(201).json({message: 'Usuario criado com sucesso'});
         } catch(err){
             console.error('Erro ao criar usuários: ', err.message)
@@ -14,10 +13,10 @@ module.exports = {
         }
     },
 
-    async verifyTicketConfirmaUser(req,res){
+    async verifyTicket(req,res){
         const {ticket} = req.body;
         try{
-            await confirmaUserService.verifyTicket(ticket)
+            await userService.verifyTicket(ticket)
             res.status(201).json({message: 'Ticket verificado com sucesso'})
         } catch(err){
             console.error('Erro: ',err)
